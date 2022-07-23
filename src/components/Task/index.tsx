@@ -1,14 +1,14 @@
+import { v4 as uuidv4 } from 'uuid';
 import { Input } from "../Input";
 import { Button } from "../Button";
 import { TaskField } from "../TaskField";
-
-import styles from "./style.module.css";
 import { useState, KeyboardEvent } from "react";
 
+import styles from "./style.module.css";
 interface Task {
-  id: number;
-  status: string;
-  text: string;
+  id: string;
+  isCompleted: boolean;
+  title: string;
 }
 
 export function Task() {
@@ -19,9 +19,9 @@ export function Task() {
     if(!task) return;
     
     const newTask = {
-      id: Math.random(),
-      status: 'pending',
-      text: task,
+      id: uuidv4(),
+      isCompleted: false,
+      title: task,
     };
     setTaskList((state) => [...state, newTask]);
     setTask("");
@@ -33,17 +33,18 @@ export function Task() {
     }
   }
 
-  function handleChangeStatus({id, status}: Task){
+  function handleChangeStatus({id, isCompleted }: Task){
     const findDoneTask = taskList.filter(task => {
       if(task.id === id){
-        task.status = status === 'done' ? 'pending' : 'done';
+        const newCompletedStatus = isCompleted ? false : true
+        task.isCompleted = newCompletedStatus;
       }
       return task
     });
     setTaskList(findDoneTask)
   }
 
-  function handleDeleteTask(taskID: number) {
+  function handleDeleteTask(taskID: string) {
     const tasksWithoutDeletedOne = taskList.filter(task => task.id !== taskID)
     setTaskList(tasksWithoutDeletedOne)
   }
@@ -51,7 +52,7 @@ export function Task() {
   function countTasks() {
     const numberOfTasksPending = taskList.length
     const numberOfTasksDone = taskList.reduce((numberOfTasksDone, currentTask) => {
-      if(currentTask.status === 'done'){
+      if(currentTask.isCompleted){
         numberOfTasksDone++
       }
       return numberOfTasksDone
@@ -88,8 +89,8 @@ export function Task() {
           {taskList.map((task) => (
             <TaskField
               key={task.id}
-              status={task.status}
-              text={task.text}
+              isCompleted={task.isCompleted}
+              title={task.title}
               onChangeStatus={() => handleChangeStatus(task)}
               onDeleteTask={() => handleDeleteTask(task.id)}
             />

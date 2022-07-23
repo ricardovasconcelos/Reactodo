@@ -4,15 +4,15 @@ import { CheckBox } from "../CheckBox";
 import styles from "./style.module.css";
 
 interface TaskFieldProps {
-  text: string;
-  status: string;
+  title: string;
+  isCompleted: boolean;
   onDeleteTask: () => void;
   onChangeStatus: () => void;
 }
 
 export function TaskField({
-  status,
-  text,
+  isCompleted,
+  title,
   onDeleteTask,
   onChangeStatus,
 }: TaskFieldProps) {
@@ -20,9 +20,9 @@ export function TaskField({
     <div className={styles.container}>
       <CheckBox
         type="checkbox"
-        text={text}
-        hasDone={status === "done"}
-        name={text}
+        text={title}
+        isCompleted={isCompleted}
+        name={title}
         onChange={() => onChangeStatus()}
       />
       <Trash size={18} className={styles.trashIcon} onClick={onDeleteTask} />
