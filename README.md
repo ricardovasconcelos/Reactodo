@@ -1,8 +1,8 @@
 
+</br>
+<img src="https://user-images.githubusercontent.com/61828136/180624600-49d95105-cb65-405a-954c-4481beb421e7.png" title="Reactodo" />
+</br>
 
-</br>
-<img src="https://user-images.githubusercontent.com/61828136/180624546-95fcd3c0-a14d-4a89-b8ce-3cce284c5bec.png" title="Reactodo" />
-</br>
 
 # About this Project
 A simple todo list built with ReactJS, Typescript and Vite
