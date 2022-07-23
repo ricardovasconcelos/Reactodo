@@ -1,19 +1,71 @@
 .container {
-  min-height: 4.5rem;
-  max-width: 46rem;
-  color: var(--gray-100);
-  background-color: var(--gray-500);
-  padding: 1rem;
-
   display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
-.trashIcon {
-  cursor: pointer;
-  color: var(--gray-300);
-  transition: color 0.2s
+.wrapper {
+  width: 50%;
 }
 
-.trashIcon:hover {
-  color: var(--danger);
+.createTask {
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+  transform: translateY(-50%);
+}
+
+.createTask input {
+  width: 100%;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 0;
+}
+
+.info span {
+  margin-left: 0.4rem;
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column-reverse;
+  gap: 16px;
+}
+
+.taskCount {
+  color: var(--blue);
+  font-size: 0.875rem;
+  font-weight: bold;
+}
+
+.taskDone {
+  color: var(--purple);
+  font-size: 0.875rem;
+  font-weight: bold;
+}
+
+.count {
+  font-size: 0.75rem;
+  color: var(--gray-200);
+  background-color: var(--gray-400);
+  padding: 0.125rem 0.5rem;
+  border-radius: 3.125rem;
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 87.5%;
+  }
+
+  .wrapper {
+    padding: 0 2rem;
+    width: 100%;
+  }
 }

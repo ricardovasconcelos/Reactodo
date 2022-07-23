@@ -1,0 +1,25 @@
+.container {
+  width: 100%;
+  min-height: 4.5rem;
+  padding: 1rem;
+  color: var(--gray-100);
+  background-color: var(--gray-500);
+  display: flex;
+  border-radius: 8px;
+  border: 1px solid var(--gray-400);
+}
+
+.container :first-child {
+  display: flex;
+  flex: 1;
+}
+
+.trashIcon {
+  cursor: pointer;
+  color: var(--gray-300);
+  transition: color 0.2s
+}
+
+.trashIcon:hover {
+  color: var(--danger);
+}

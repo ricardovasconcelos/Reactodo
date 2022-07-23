@@ -1,15 +1,15 @@
+import { Header } from "./components/Header";
+import { Task } from "./components/Task";
 
-import { Header } from './components/Header'
-
-import './global.css'
+import "./global.css";
 
 function App() {
-
   return (
-    <div>
-      <Header/>
-    </div>
-  )
+    <>
+      <Header />
+      <Task />
+    </>
+  );
 }
 
-export default App
+export default App;
