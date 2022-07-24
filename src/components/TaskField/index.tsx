@@ -23,7 +23,7 @@ export function TaskField({
         text={title}
         isCompleted={isCompleted}
         name={title}
-        onChange={() => onChangeStatus()}
+        onChange={onChangeStatus}
       />
       <Trash size={18} className={styles.trashIcon} onClick={onDeleteTask} />
     </div>
